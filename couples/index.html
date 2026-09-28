@@ -682,7 +682,16 @@ body{margin:0;padding:0;background:#fff;}
 .hope-lp .hope-form-card{flex:1 1 440px;min-width:290px;background:#fff;color:var(--hp-text);border-radius:var(--hp-radius);padding:36px;box-shadow:0 26px 70px rgba(34,11,67,.3);}
 .hope-lp .hope-form-card h3{font-size:24px;color:var(--hp-purple);margin-bottom:6px;}
 .hope-lp .hope-form-sub{font-size:14.5px;color:var(--hp-muted);margin-bottom:20px;}
-.hope-lp .hope-form-placeholder{border:2px dashed var(--hp-purple);border-radius:14px;padding:34px 20px;text-align:center;font-size:14.5px;color:var(--hp-purple-dk);background:var(--hp-lav);}
+/* HubSpot form styling (applies when HubSpot renders the form as HTML on the page) */
+.hope-lp #hope-form-slot .hs-form-field{margin-bottom:16px;}
+.hope-lp #hope-form-slot .hs-form-field > label{display:block;font-size:14px;font-weight:600;color:var(--hp-ink);margin-bottom:6px;}
+.hope-lp #hope-form-slot .hs-input:not([type="checkbox"]):not([type="radio"]){width:100%!important;max-width:100%;font-family:inherit;font-size:15px;padding:12px 14px;border:1.5px solid #D9D3E6;border-radius:10px;background:#fff;color:var(--hp-text);}
+.hope-lp #hope-form-slot .hs-input:focus{outline:none;border-color:var(--hp-purple);box-shadow:0 0 0 3px rgba(144,72,239,.18);}
+.hope-lp #hope-form-slot textarea.hs-input{min-height:110px;}
+.hope-lp #hope-form-slot fieldset{max-width:100%!important;}
+.hope-lp #hope-form-slot .hs-error-msgs{margin-top:6px;font-size:13px;color:#C62828;}
+.hope-lp #hope-form-slot .hs-button{width:100%;font-family:inherit;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.02em;padding:15px 20px;border:0;border-radius:10px;cursor:pointer;color:#000;background:linear-gradient(90deg,var(--hp-sun-1),var(--hp-sun-2));}
+.hope-lp #hope-form-slot .hs-button:hover{filter:brightness(.97);}
 .hope-lp .hope-form-foot{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--hp-muted);margin-top:16px;}
 
 .hope-sticky{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 12px;background:#220B43;box-shadow:0 -8px 24px rgba(34,11,67,.3);transition:transform .25s ease;font-family:Poppins,Arial,sans-serif;}
@@ -711,8 +720,15 @@ body{margin:0;padding:0;background:#fff;}
         <h3>Book an appointment</h3>
         <p class="hope-form-sub">Fill out the form and our intake team will contact you.</p>
         <div id="hope-form-slot">
-          <!-- ===== FORM EMBED GOES HERE. Delete the placeholder div below and paste the form embed code in its place. ===== -->
-          <div class="hope-form-placeholder">Form embed goes here.<br>Replace this box before launch.</div>
+          <!-- HubSpot form. On submit, HubSpot redirects to /thank-you (set in the form's HubSpot settings). -->
+          <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              portalId: "40846835",
+              formId: "fa436dcb-1af2-41e6-8a47-5df843ba58cf",
+              region: "na1"
+            });
+          </script>
         </div>
         <p class="hope-form-foot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" stroke="#5B5670" stroke-width="1.8"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#5B5670" stroke-width="1.8"/></svg>Your information is private and confidential.</p>
       </div>
